@@ -1,0 +1,359 @@
+/* BeTattoo dark theme styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Fredericka the Great', cursive;
+  background-color: #111;
+  color: #eee;
+  line-height: 1.6;
+}
+
+/* Header */
+.header {
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  background: #111;
+  border: 1px solid #333;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+.navbar {
+  padding: 0.5rem 2rem;
+}
+
+.navbar-nav {
+  gap: 2rem;
+}
+
+.logo {
+  font-family: 'Fredericka the Great', cursive;
+  font-size: 2rem;
+  color: #E8BCB5 !important;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: #E8BCB5 !important;
+}
+
+/* Carousel */
+.carousel-item img {
+  height: 100vh;
+  object-fit: cover;
+}
+
+.carousel-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.carousel-logo img {
+  max-width: 300px;
+  opacity: 0.9;
+}
+
+/* Sections */
+.section-title {
+  font-family: 'Fredericka the Great', cursive;
+  font-size: 2.5rem;
+  color: #E8BCB5;
+}
+
+.section-subtitle {
+  color: #bbb;
+}
+
+/* Features Section */
+#features {
+  background-color: #1a1a1a;
+  width: 100%;
+  padding: 4rem 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.features-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.features-wrapper .row {
+  margin: 0 -0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.features-wrapper .row > [class*='col-'] {
+  padding: 0 0.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+#features .section-title {
+  font-size: 2.5rem;
+  color: #E8BCB5;
+  margin-bottom: 1rem;
+}
+
+#features .section-subtitle {
+  color: #bbb;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.feature-box {
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.feature-icon {
+  margin-bottom: 1.5rem;
+}
+
+/* UPDATED: Scroll-based fade-in animation */
+.feature-icon i {
+  font-size: 4rem;
+  color: #E8BCB5;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.feature-icon i.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.feature-box h3 {
+  color: #ddd;
+  font-size: 1.2rem;
+  font-weight: 400;
+  text-transform: lowercase;
+  margin-top: 1rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.feature-box h3.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Buttons */
+.btn-outline {
+  display: inline-block;
+  padding: 0.6rem 1.5rem;
+  border: 1px solid #E8BCB5;
+  color: #E8BCB5;
+  font-family: 'Fredericka the Great', cursive;
+  font-size: 0.9rem;
+  background: transparent;
+  text-decoration: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-outline:hover {
+  color: #E8BCB5;
+  background: transparent;
+}
+
+/* Tattoo Gallery */
+#gallery .section-title {
+  margin-top: 60px;   
+  margin-bottom: 60px; 
+  color: #E8BCB5;     
+}
+.tattoo-gallery {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.tattoo-gallery .row {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tattoo-gallery .tattoo-item {
+  position: relative;
+  overflow: hidden;
+  flex: 0 0 33.33%;
+  margin: 0;
+  height: 200px;
+}
+
+.tattoo-gallery .tattoo-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+  transition: transform 0.3s ease;
+}
+
+.tattoo-gallery .tattoo-item:hover img {
+  transform: scale(1.05);
+}
+
+.hover-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.tattoo-gallery .tattoo-item:hover .hover-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hover-overlay i {
+  color: #111;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+#modalImage {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Intro Section */
+.intro-section {
+  background: url('assets/smokey.jpg') no-repeat center center/cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  color: #fff;
+  padding: 0 8%;
+  margin: 0;
+  position: relative;
+}
+
+.intro-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.intro-content {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  text-align: center;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-120px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.slide-text {
+  opacity: 0;
+  transform: translateX(-120px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.slide-text.animate {
+  animation: slideInRight 1s ease-out forwards;
+}
+
+.intro-content h2 {
+  color: #E8BCB5;
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  opacity: 0;
+  animation: slideInRight 1s ease-out forwards;
+}
+
+.intro-content h3 {
+  color: #ddd;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: slideInRight 1s ease-out forwards;
+  animation-delay: 0.5s;
+}
+
+.intro-content p {
+  color: #ccc;
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  opacity: 0;
+  text-align: center;
+  animation: fadeUp 1s ease-out forwards;
+  animation-delay: 1s;
+}
+
+/* Extra Lines */
+.extra-lines h4 {
+  color: #E8BCB5;
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.extra-lines p {
+  color: #bbb;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.left-column {
+  text-align: right;
+}
+
+.right-column {
+  text-align: left;
+}
+
+/* Footer */
+.footer {
+  background: #111;
+  border-top: 1px solid #333;
+  color: #999;
+}
+
+.logo-section {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.logo-section img {
+  width: 150px;
+  height: auto;
+}
