@@ -1,0 +1,58 @@
+/* BeTattoo Dark Theme */
+body {
+  background-color: #111;
+  color: #eee;
+  font-family: 'Fredericka the Great', cursive;
+}
+
+/* Header */
+.header {
+  position: sticky;
+  top: 0;
+  background: #111;
+  z-index: 1000;
+  text-align: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid #333;
+}
+
+/* Page Title */
+.header h1 {
+  color: #E8BCB5;
+  font-size: 2rem;
+  margin: 0;
+}
+/* Buttons */
+.btn-outline {
+  border: 1px solid #E8BCB5;
+  color: #E8BCB5;
+  background: transparent;
+}
+.btn-outline:hover {
+  background: #E8BCB5;
+  color: #111;
+}
+
+/* Table */
+.table-dark {
+  background-color: #1a1a1a;
+  color: #eee;
+  text-align: center;
+}
+.table-dark th {
+  background-color: #222;
+  color: #E8BCB5;
+}
+
+/* Footer */
+.footer {
+  border-top: 1px solid #333;
+  color: #999;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+/* Toast notifications */
+.toast-container {
+  z-index: 9999;
+}

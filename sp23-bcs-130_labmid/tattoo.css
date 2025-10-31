@@ -1,0 +1,201 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Fredericka the Great', cursive;
+  background-color: #111;
+  color: #eee;
+  line-height: 1.6;
+}
+
+/* Navbar Container */
+.header {
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  background: #111;
+  border: 1px solid #333;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+/* Navbar padding */
+.navbar {
+  padding: 0.5rem 2rem;
+}
+
+.navbar-nav {
+  display: flex;          
+  gap: 1rem;            
+  margin-left: -1rem;     
+}
+
+
+.logo {
+  font-family: 'Fredericka the Great', cursive;
+  font-size: 2rem;
+  color: #E8BCB5 !important;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: #E8BCB5 !important;
+}
+
+/* Hero Section */
+.tattoos-hero {
+  position: relative;
+  background: url('assets/bottom.jpg') no-repeat center center/cover;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+  margin-top: 0;
+  z-index: 0;
+}
+
+.tattoos-overlay {
+  position: relative;
+  z-index: 2;
+}
+
+.tattoos-overlay h1 {
+  font-size: 2.5rem;
+  color: #E8BCB5;
+}
+
+/* Text Section Styling */
+.tattoos-text {
+  max-width: 900px;       
+  margin: 4rem auto 2rem auto;       
+  padding: 2rem 2rem;     
+  text-align: center;     
+  background: transparent; 
+}
+
+.tattoos-text p:first-child {
+  font-size: 1.3rem;      
+  color: #E8BCB5;         
+  margin-bottom: 1.5rem;   
+  line-height: 1.8;
+}
+
+.tattoos-text p:not(:first-child) {
+  font-size: 0.7rem;
+  color: #ccc;
+  margin: 0.8rem 0;         
+  line-height: 1.6;
+}
+
+.tattoos-text p:last-child {
+  margin-bottom: 0;
+}
+/* Tattoo Gallery */
+.tattoo-gallery {
+  padding: 2rem 0;
+}
+
+.tattoo-gallery .row {
+  margin: 0;
+}
+
+.tattoo-item {
+  position: relative;
+  padding: 0;
+  overflow: hidden;
+}
+
+.tattoo-gallery img {
+  width: 100%;
+  height: 180px; /* smaller images */
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.tattoo-gallery img:hover {
+  transform: scale(1.05);
+}
+
+/* Hover overlay */
+.hover-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.tattoo-item:hover .hover-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hover-overlay i {
+  color: #111;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Logo Section */
+.logo-section {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.logo-section img {
+  width: 150px;
+  height: auto;
+}
+
+/* Modal styling */
+.modal-header {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1055;
+  background: transparent;
+}
+
+.modal-content {
+  position: relative;
+}
+
+.btn-close-white {
+  filter: brightness(0) invert(1);
+}
+
+#modalImage {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Footer */
+.footer {
+  background: #111;
+  border-top: 1px solid #333;
+  color: #999;
+  padding: 1rem 0;
+  text-align: center;
+}
+
