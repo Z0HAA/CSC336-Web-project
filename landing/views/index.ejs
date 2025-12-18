@@ -1,0 +1,228 @@
+<%- include('partials/header', { title: 'BeTattoo - Home', page: 'home', cssFile: 'index.css' }) %>
+
+<!-- Carousel -->
+<section id="home" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3000">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="/assets/three.jpg" class="d-block w-100" alt="Tattoo slide one">
+    </div>
+    <div class="carousel-item">
+      <img src="/assets/five.jpg" class="d-block w-100" alt="Tattoo slide two">
+    </div>
+    <div class="carousel-item">
+      <img src="/assets/two.jpg" class="d-block w-100" alt="Tattoo slide three">
+    </div>
+  </div>
+
+  <!-- Logo overlay -->
+  <div class="carousel-logo">
+    <img src="/assets/one.png" alt="BeTattoo Logo">
+  </div>
+</section>
+
+<!-- Features Section -->
+<section id="features" class="features text-center py-5">
+  <div class="features-wrapper">
+    <h2 class="section-title">This is BeTattoo</h2>
+    <p class="section-subtitle">
+      Live without hate, embracing a gentle flow of purpose and growth.
+    </p>
+
+    <div class="row mt-5 justify-content-center">
+      <div class="col-12 col-md-4">
+        <div class="feature-box">
+          <div class="feature-icon">
+            <i class="bi bi-pen"></i>
+          </div>
+          <h3>Creatively Designed</h3>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4">
+        <div class="feature-box">
+          <div class="feature-icon">
+            <i class="bi bi-gem"></i>
+          </div>
+          <h3>Extra Clean and Perfect</h3>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4">
+        <div class="feature-box">
+          <div class="feature-icon">
+            <i class="bi bi-cash-coin"></i>
+          </div>
+          <h3>Great Value for Good Price</h3>
+        </div>
+      </div>
+    </div>
+
+    <p class="section-subtitle mt-4 px-2 px-md-0">
+      Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. 
+      Maecenas malesuada elit lectus felis, malesuada ultricies. 
+      Curabitur et ligula. Ut molestie a, ultricies porta urna. 
+      Vestibulum commodo volutpat a, convallis ac, laoreet enim. 
+      Phasellus fermentum in, dolor. Pellentesque facilisis. 
+      Nulla imperdiet sit amet magna. Vestibulum dapibus, 
+      mauris nec malesuada fames.
+    </p>
+
+    <a href="/process" class="btn-outline mt-3">See more</a>
+  </div>
+</section>
+
+<!-- Tattoo Gallery -->
+<section id="gallery" class="tattoo-gallery">
+  <h2 class="section-title text-center mb-4">Selected Tattoos</h2>
+  <div class="row g-0">
+    
+    <% for(let i = 1; i <= 9; i++) { %>
+    <div class="col-12 col-md-4 tattoo-item">
+      <img src="/assets/img<%= i %>.jpg" class="img-fluid" alt="Tattoo <%= i %>">
+      <div class="hover-overlay">
+        <i class="bi bi-search" data-bs-toggle="modal" data-bs-target="#imageModal"></i>
+      </div>
+    </div>
+    <% } %>
+
+  </div>
+</section>
+
+<!-- Modal for preview -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content bg-dark border-0">
+      <div class="modal-body text-center p-0">
+        <img id="modalImage" src="" class="img-fluid rounded" alt="Tattoo Preview">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Intro Section -->
+<section id="intro" class="intro-section">
+  <div class="intro-content text-center">
+    <h2 class="slide-text">Hi, I'm Adam</h2>
+    <h3 class="slide-text">I make good tattoos</h3>
+    <p class="slide-text">
+      Cum sociis penatibus et ultrices volutpat. Nullam wisi ultricies a, gravida vitae, 
+      dapibus risus ante sodales lectus blandit eu, tempor diam pede cursus vitae ultricies.
+    </p>
+
+    <div class="extra-lines row justify-content-center">
+      <div class="col-md-5 left-column">
+        <h4 class="slide-text">Ipsum roin gravida</h4>
+        <p class="slide-text">Risus ante sodales lectus blandit eu</p>
+
+        <h4 class="slide-text">Ut molestie ultricies</h4>
+        <p class="slide-text">Maecenas malesuada elit lectus</p>
+      </div>
+
+      <div class="col-md-5 right-column">
+        <h4 class="slide-text">Quisque lorem tortor</h4>
+        <p class="slide-text">Luctus et interdum adipiscing wise</p>
+
+        <h4 class="slide-text">Deciduso cursus et</h4>
+        <p class="slide-text">Eleifend justo vel bibendum</p>
+      </div>
+    </div>
+
+    <a href="/studio" class="btn-outline small-btn mt-3 slide-text">Read More</a>
+  </div>
+</section>
+
+<!-- Customer Testimonials Section -->
+<section id="testimonials" class="testimonials-section text-center py-5">
+  <div class="container">
+    <h2 class="section-title mb-4">Customer Testimonials</h2>
+
+    <div class="testimonial-carousel">
+      <div class="testimonial-track">
+
+        <!-- 1 -->
+        <div class="testimonial-card">
+          <img src="/assets/p1.jpg" alt="Customer 1" class="testimonial-img mb-3">
+          <h4 class="testimonial-name">Sarah Khan</h4>
+          <div class="stars mb-2">★★★★★</div>
+          <p class="testimonial-text">
+            "Absolutely loved my tattoo! The artist made me feel comfortable and captured my idea perfectly."
+          </p>
+        </div>
+
+        <!-- 2 -->
+        <div class="testimonial-card">
+          <img src="/assets/p5.jpg" alt="Customer 2" class="testimonial-img mb-3">
+          <h4 class="testimonial-name">Ali Raza</h4>
+          <div class="stars mb-2">★★★★☆</div>
+          <p class="testimonial-text">
+            "Creative team and chill vibes. My sleeve design came out beyond expectations. True artists!"
+          </p>
+        </div>
+
+        <!-- 3 -->
+        <div class="testimonial-card">
+          <img src="/assets/p3.jpg" alt="Customer 3" class="testimonial-img mb-3">
+          <h4 class="testimonial-name">Emily Johnson</h4>
+          <div class="stars mb-2">★★★★★</div>
+          <p class="testimonial-text">
+            "Every detail of my tattoo was handled with precision. Couldn't be happier with the outcome!"
+          </p>
+        </div>
+
+        <!-- 4 -->
+        <div class="testimonial-card">
+          <img src="/assets/p4.jpg" alt="Customer 4" class="testimonial-img mb-3">
+          <h4 class="testimonial-name">Ahmed Malik</h4>
+          <div class="stars mb-2">★★★★★</div>
+          <p class="testimonial-text">
+            "Great atmosphere and professional service. BeTattoo has become my go-to studio."
+          </p>
+        </div>
+
+        <!-- 5 (NEW) -->
+        <div class="testimonial-card">
+          <img src="/assets/p8.jpg" alt="Customer 5" class="testimonial-img mb-3">
+          <h4 class="testimonial-name">Zara Sheikh</h4>
+          <div class="stars mb-2">★★★★★</div>
+          <p class="testimonial-text">
+            "Best tattoo experience I’ve ever had. Clean studio and flawless work!"
+          </p>
+        </div>
+
+        <!-- 6 (NEW) -->
+        <div class="testimonial-card">
+          <img src="/assets/p7.jpg" alt="Customer 6" class="testimonial-img mb-3">
+          <h4 class="testimonial-name">Jason Lee</h4>
+          <div class="stars mb-2">★★★★☆</div>
+          <p class="testimonial-text">
+            "Amazing shading technique. The artists really know what they're doing."
+          </p>
+        </div>
+
+        <!-- 7 (NEW) -->
+        <div class="testimonial-card">
+          <img src="/assets/p6.jpg" alt="Customer 7" class="testimonial-img mb-3">
+          <h4 class="testimonial-name">Ayesha Malik</h4>
+          <div class="stars mb-2">★★★★★</div>
+          <p class="testimonial-text">
+            "They listened carefully to my idea and delivered a tattoo better than I imagined."
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="carousel-controls mt-4">
+      <button id="prevBtn" class="carousel-btn"><i class="bi bi-chevron-left"></i></button>
+      <button id="nextBtn" class="carousel-btn"><i class="bi bi-chevron-right"></i></button>
+    </div>
+  </div>
+
+  <div class="view-buttons mt-3">
+    <button id="viewMoreBtn" class="btn-outline">View More</button>
+    <button id="viewLessBtn" class="btn-outline" style="display: none;">View Less</button>
+  </div>
+
+</section>
+
+<%- include('partials/footer', { jsFile: 'index.js' }) %>

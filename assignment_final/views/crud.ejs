@@ -1,0 +1,90 @@
+<%- include('partials/header', { title: 'CRUD Demo | BeTattoo', page: 'crud', cssFile: 'crud.css' }) %>
+
+<!-- Toast Container -->
+<div class="toast-container position-fixed top-0 end-0 p-3"></div>
+
+<!-- CRUD Section -->
+<main class="crud-section container py-5" style="padding-top: 200px !important;">
+  <h2 class="text-center mb-4" style="color: #E8BCB5;">Manage Tattoo Packages</h2>
+  
+  <form id="productForm" class="mb-4">
+    <input type="hidden" id="productId">
+
+    <div class="row g-3">
+      <div class="col-md-6">
+        <label class="form-label" style="color: #ccc;">Package Name</label>
+        <input type="text" id="name" class="form-control" placeholder="e.g., Basic Tattoo" required>
+      </div>
+
+      <div class="col-md-3">
+        <label class="form-label" style="color: #ccc;">Price ($)</label>
+        <input type="number" id="price" class="form-control" placeholder="80" required min="0">
+      </div>
+
+      <div class="col-md-3">
+        <label class="form-label" style="color: #ccc;">Category</label>
+        <select id="category" class="form-select" required>
+          <option value="Basic">Basic</option>
+          <option value="Standard">Standard</option>
+          <option value="Premium">Premium</option>
+          <option value="Custom">Custom</option>
+        </select>
+      </div>
+
+      <div class="col-12">
+        <label class="form-label" style="color: #ccc;">Description</label>
+        <textarea id="description" class="form-control" rows="3" placeholder="Describe the package..." required></textarea>
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label" style="color: #ccc;">Image Path</label>
+        <input type="text" id="image" class="form-control" placeholder="/assets/img1.jpg" required>
+      </div>
+
+      <div class="col-md-3">
+        <label class="form-label" style="color: #ccc;">In Stock</label>
+        <select id="inStock" class="form-select">
+          <option value="true">Yes</option>
+          <option value="false">No</option>
+        </select>
+      </div>
+
+      <div class="col-md-3">
+        <label class="form-label" style="color: #ccc;">Featured</label>
+        <select id="featured" class="form-select">
+          <option value="false">No</option>
+          <option value="true">Yes</option>
+        </select>
+      </div>
+
+      <div class="col-12">
+        <button type="submit" class="btn-outline" id="saveBtn">Save Package</button>
+        <button type="button" class="btn btn-secondary ms-2" id="resetBtn">Clear Form</button>
+      </div>
+    </div>
+  </form>
+
+  <!-- Loading Spinner -->
+  <div id="loading" class="text-center my-3" style="display:none;">
+    <div class="spinner-border" style="color: #E8BCB5;" role="status"></div>
+    <p style="color: #ccc;">Loading...</p>
+  </div>
+
+  <!-- Products Table -->
+  <div class="table-responsive">
+    <table class="table table-dark table-bordered text-center align-middle">
+      <thead>
+        <tr style="color: #E8BCB5;">
+          <th>Name</th>
+          <th>Price</th>
+          <th>Category</th>
+          <th>In Stock</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="productsTable"></tbody>
+    </table>
+  </div>
+</main>
+
+<%- include('partials/footer', { jsFile: 'crud.js', useJQuery: true }) %>

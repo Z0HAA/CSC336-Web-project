@@ -1,0 +1,57 @@
+<%- include('partials/header', { title: 'Shopping Cart - BeTattoo', page: 'cart', cssFile: 'cart.css' }) %>
+
+<section style="padding-top: 150px; min-height: 100vh; background: #111;">
+  <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+    
+    <h2 style="color: #E8BCB5; text-align: center; margin-bottom: 2rem;">
+      <i class="bi bi-cart"></i> Shopping Cart
+    </h2>
+
+    <!-- Empty Cart Message -->
+    <div id="emptyCart" style="display: none; text-align: center; padding: 4rem 2rem;">
+      <i class="bi bi-cart-x" style="font-size: 5rem; color: #666;"></i>
+      <h3 style="color: #999; margin-top: 1rem;">Your cart is empty</h3>
+      <a href="/buy-now" style="display: inline-block; margin-top: 1.5rem; background: #E8BCB5; color: #111; padding: 0.8rem 2rem; border-radius: 5px; text-decoration: none; font-weight: 600;">
+        Continue Shopping
+      </a>
+    </div>
+
+    <!-- Cart Items -->
+    <div id="cartItems" class="row g-4"></div>
+
+    <!-- Cart Summary -->
+    <div id="cartSummary" style="display: none; background: #1a1a1a; border: 1px solid #333; border-radius: 10px; padding: 2rem; margin-top: 2rem; max-width: 500px; margin-left: auto;">
+      <h4 style="color: #E8BCB5; margin-bottom: 1.5rem;">Order Summary</h4>
+      
+      <div style="display: flex; justify-content: space-between; margin-bottom: 1rem; color: #ccc;">
+        <span>Subtotal (<span id="itemCount">0</span> items):</span>
+        <span style="color: #fff; font-weight: 600;">$<span id="subtotal">0.00</span></span>
+      </div>
+
+      <div style="display: flex; justify-content: space-between; margin-bottom: 1rem; color: #ccc;">
+        <span>Shipping:</span>
+        <span style="color: #5cb85c;">FREE</span>
+      </div>
+
+      <hr style="border-color: #444; margin: 1.5rem 0;">
+
+      <div style="display: flex; justify-content: space-between; margin-bottom: 2rem;">
+        <span style="color: #E8BCB5; font-size: 1.2rem; font-weight: 600;">Total:</span>
+        <span style="color: #E8BCB5; font-size: 1.5rem; font-weight: bold;">$<span id="total">0.00</span></span>
+      </div>
+
+      <a href="/checkout" style="display: block; text-align: center; background: #E8BCB5; color: #111; padding: 1rem; border-radius: 5px; text-decoration: none; font-weight: 600; margin-bottom: 1rem;">
+        Proceed to Checkout
+      </a>
+      
+      <a href="/buy-now" style="display: block; text-align: center; background: transparent; border: 1px solid #E8BCB5; color: #E8BCB5; padding: 1rem; border-radius: 5px; text-decoration: none;">
+        Continue Shopping
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<script src="/js/cart.js"></script>
+
+<%- include('partials/footer') %>

@@ -1,0 +1,98 @@
+<div class="container-fluid">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 style="color: #E8BCB5;"><i class="bi bi-box-seam"></i> Manage Products</h2>
+    <a href="/admin/products/add" class="btn btn-primary">
+      <i class="bi bi-plus-circle"></i> Add New Product
+    </a>
+  </div>
+
+  <!-- Success/Error Messages -->
+  <% if (typeof query !== 'undefined') { %>
+    <% if (query.success === 'added') { %>
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <i class="bi bi-check-circle"></i> Product added successfully!
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+      </div>
+    <% } else if (query.success === 'updated') { %>
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <i class="bi bi-check-circle"></i> Product updated successfully!
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+      </div>
+    <% } else if (query.success === 'deleted') { %>
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <i class="bi bi-check-circle"></i> Product deleted successfully!
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+      </div>
+    <% } else if (query.error) { %>
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="bi bi-exclamation-triangle"></i> An error occurred. Please try again.
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+      </div>
+    <% } %>
+  <% } %>
+
+  <!-- Products Table -->
+  <div class="stat-card">
+    <% if (products && products.length > 0) { %>
+      <div class="table-responsive">
+        <table class="table table-dark table-hover align-middle">
+          <thead>
+            <tr>
+              <th>Image</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Category</th>
+              <th>Stock</th>
+              <th>Featured</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% products.forEach(product => { %>
+              <tr>
+                <td>
+                  <img src="<%= product.image %>" alt="<%= product.name %>" class="product-img">
+                </td>
+                <td><%= product.name %></td>
+                <td style="color: #E8BCB5; font-weight: 600;">$<%= product.price %></td>
+                <td><span class="badge bg-secondary"><%= product.category %></span></td>
+                <td>
+                  <% if (product.inStock) { %>
+                    <span class="badge bg-success">In Stock</span>
+                  <% } else { %>
+                    <span class="badge bg-danger">Out of Stock</span>
+                  <% } %>
+                </td>
+                <td>
+                  <% if (product.featured) { %>
+                    <i class="bi bi-star-fill" style="color: #ffc107;"></i>
+                  <% } else { %>
+                    <i class="bi bi-star" style="color: #666;"></i>
+                  <% } %>
+                </td>
+                <td>
+                  <a href="/admin/products/edit/<%= product._id %>" class="btn btn-sm btn-warning me-2">
+                    <i class="bi bi-pencil"></i>
+                  </a>
+                  <form action="/admin/products/delete/<%= product._id %>" method="POST" style="display: inline;" onsubmit="return confirm('Delete this product?')">
+                    <button type="submit" class="btn btn-sm btn-danger">
+                      <i class="bi bi-trash"></i>
+                    </button>
+                  </form>
+                </td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    <% } else { %>
+      <div class="text-center py-5">
+        <i class="bi bi-inbox" style="font-size: 4rem; color: #666;"></i>
+        <p style="color: #999; margin-top: 1rem;">No products yet. Add your first product!</p>
+        <a href="/admin/products/add" class="btn btn-primary mt-3">
+          <i class="bi bi-plus-circle"></i> Add Product
+        </a>
+      </div>
+    <% } %>
+  </div>
+</div>

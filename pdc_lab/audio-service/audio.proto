@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+service AudioService {
+  rpc ProcessAudio (AudioRequest) returns (AudioResponse);
+}
+
+message AudioRequest {
+  bytes audio = 1;
+}
+
+message AudioResponse {
+  bytes audio = 1;
+}

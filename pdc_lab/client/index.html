@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Distributed Chat System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🌍 Multi-Language Chat System</h1>
+      <p>Powered by Microservices Architecture</p>
+    </header>
+
+    <!-- Language Selection Section -->
+    <section class="card">
+      <h2>👤 Set Your Language Preference</h2>
+      <div class="form-group">
+        <label for="userId">User ID:</label>
+        <input type="text" id="userId" placeholder="e.g., user2" value="user2">
+      </div>
+      <div class="form-group">
+        <label for="language">Preferred Language:</label>
+        <select id="language">
+          <option value="es">Spanish (Español)</option>
+          <option value="fr">French (Français)</option>
+        </select>
+      </div>
+      <button class="btn btn-primary" onclick="setLanguage()">
+        💾 Save Language Preference
+      </button>
+      <div id="languageResult" class="result"></div>
+    </section>
+
+    <!-- Text Translation Section -->
+    <section class="card">
+      <h2>💬 Send Text Message</h2>
+      <div class="form-group">
+        <label for="sender">Sender ID:</label>
+        <input type="text" id="sender" placeholder="e.g., user1" value="user1">
+      </div>
+      <div class="form-group">
+        <label for="receiver">Receiver ID:</label>
+        <input type="text" id="receiver" placeholder="e.g., user2" value="user2">
+      </div>
+      <div class="form-group">
+        <label for="messageText">Message:</label>
+        <input type="text" id="messageText" placeholder="Type: hello or bye" value="hello">
+      </div>
+      <button class="btn btn-success" onclick="sendTextMessage()">
+        📤 Send & Translate
+      </button>
+      <div id="textResult" class="result"></div>
+      <div id="textMetrics" class="metrics"></div>
+    </section>
+
+    <!-- Audio Processing Section -->
+    <section class="card">
+      <h2>🎵 Send Audio Message</h2>
+      <div class="form-group">
+        <label for="audioData">Audio Data (Base64):</label>
+        <textarea id="audioData" rows="3" placeholder="Paste base64 audio data">SGVsbG9BdWRpbw==</textarea>
+      </div>
+      <button class="btn btn-info" onclick="sendAudioMessage()">
+        🎤 Process Audio
+      </button>
+      <div id="audioResult" class="result"></div>
+      <div id="audioMetrics" class="metrics"></div>
+    </section>
+
+    <!-- Performance Dashboard -->
+    <section class="card dashboard">
+      <h2>📊 Performance Metrics</h2>
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <h3>Text Translation</h3>
+          <p id="textTime" class="metric-value">- ms</p>
+          <p class="metric-label">Response Time</p>
+        </div>
+        <div class="metric-card">
+          <h3>Audio Processing</h3>
+          <p id="audioTime" class="metric-value">- ms</p>
+          <p class="metric-label">Response Time</p>
+        </div>
+        <div class="metric-card">
+          <h3>Total Requests</h3>
+          <p id="totalRequests" class="metric-value">0</p>
+          <p class="metric-label">API Calls</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
