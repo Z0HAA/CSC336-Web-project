@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tattoos | BeTattoo</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="tattoo.css">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="header">
+    <nav class="navbar navbar-expand-lg navbar-dark container">
+      <a class="navbar-brand logo" href="index.html">BeTattoo</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="process.html">Process</a></li>
+          <li class="nav-item"><a class="nav-link active" href="tattoo.html">Tattoos</a></li>
+          <li class="nav-item"><a class="nav-link" href="studio.html">Our Studio</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="buy-now.html">Buy Now</a></li>
+          <li class="nav-item"><a class="nav-link" href="crud.html">CRUD Demo</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+<!-- Hero Section -->
+<section class="tattoos-hero d-flex align-items-center justify-content-center text-center text-light">
+  <div class="tattoos-overlay"><h1>Our Tattoo Collection</h1></div>
+</section>
+
+<!-- Text Section  -->
+<section class="container mt-4 text-center tattoos-text">
+  <p>In congue porta, turpis mauris sed ante. Fusce aliquet quis aliquet quis, luctus et t lacus malesuada aliquet magnis dis parturient montes.</p>
+  <p>In congue porta, turpis mauris sed ante. Fusce aliquet quis, luctus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur nunc. Nam feugiat, quam at lacus malesuada aliquet. In id sapien dui dolor, placerat eget, sollicitudin non, placerat at, viverra, nascetur ridiculus mus. Curabitur nunc. Nam feugiat, quam at lacus malesuada aliquet. In id sapien dui dolor, placerat.</p>
+</section>
+
+<!-- Tattoo Gallery (grid, no gaps) -->
+<section class="tattoo-gallery container-fluid p-0">
+  <div class="row g-0">
+    <div class="col-4 tattoo-item">
+      <img src="assets/img1.jpg" alt="Tattoo 1">
+      <div class="hover-overlay">
+        <i class="bi bi-search" data-bs-toggle="modal" data-bs-target="#imageModal"></i>
+      </div>
+    </div>
+    <div class="col-4 tattoo-item">
+      <img src="assets/img2.jpg" alt="Tattoo 2">
+      <div class="hover-overlay">
+        <i class="bi bi-search" data-bs-toggle="modal" data-bs-target="#imageModal"></i>
+      </div>
+    </div>
+    <div class="col-4 tattoo-item">
+      <img src="assets/img3.jpg" alt="Tattoo 3">
+      <div class="hover-overlay">
+        <i class="bi bi-search" data-bs-toggle="modal" data-bs-target="#imageModal"></i>
+      </div>
+    </div>
+
+    <div class="col-4 tattoo-item">
+      <img src="assets/img4.jpg" alt="Tattoo 4">
+      <div class="hover-overlay">
+        <i class="bi bi-search" data-bs-toggle="modal" data-bs-target="#imageModal"></i>
+      </div>
+    </div>
+    <div class="col-4 tattoo-item">
+      <img src="assets/img5.jpg" alt="Tattoo 5">
+      <div class="hover-overlay">
+        <i class="bi bi-search" data-bs-toggle="modal" data-bs-target="#imageModal"></i>
+      </div>
+    </div>
+    <div class="col-4 tattoo-item">
+      <img src="assets/img6.jpg" alt="Tattoo 6">
+      <div class="hover-overlay">
+        <i class="bi bi-search" data-bs-toggle="modal" data-bs-target="#imageModal"></i>
+      </div>
+    </div>
+
+    <div class="col-4 tattoo-item">
+      <img src="assets/img7.jpg" alt="Tattoo 7">
+      <div class="hover-overlay">
+        <i class="bi bi-search" data-bs-toggle="modal" data-bs-target="#imageModal"></i>
+      </div>
+    </div>
+    <div class="col-4 tattoo-item">
+      <img src="assets/img8.jpg" alt="Tattoo 8">
+      <div class="hover-overlay">
+        <i class="bi bi-search" data-bs-toggle="modal" data-bs-target="#imageModal"></i>
+      </div>
+    </div>
+    <div class="col-4 tattoo-item">
+      <img src="assets/img9.jpg" alt="Tattoo 9">
+      <div class="hover-overlay">
+        <i class="bi bi-search" data-bs-toggle="modal" data-bs-target="#imageModal"></i>
+      </div>
+    </div>
+
+    <div class="col-6 col-md-3 tattoo-item">
+      <img src="assets/g1.jpg" alt="Tattoo 10">
+      <div class="hover-overlay">
+        <i class="bi bi-search" data-bs-toggle="modal" data-bs-target="#imageModal"></i>
+      </div>
+    </div>
+    <div class="col-6 col-md-3 tattoo-item">
+      <img src="assets/g2.jpg" alt="Tattoo 11">
+      <div class="hover-overlay">
+        <i class="bi bi-search" data-bs-toggle="modal" data-bs-target="#imageModal"></i>
+      </div>
+    </div>
+    <div class="col-6 col-md-3 tattoo-item">
+      <img src="assets/eo.jpg" alt="Tattoo 12">
+      <div class="hover-overlay">
+        <i class="bi bi-search" data-bs-toggle="modal" data-bs-target="#imageModal"></i>
+      </div>
+    </div>
+    <div class="col-6 col-md-3 tattoo-item">
+      <img src="assets/i1.jpg" alt="Tattoo 13">
+      <div class="hover-overlay">
+        <i class="bi bi-search" data-bs-toggle="modal" data-bs-target="#imageModal"></i>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Modal -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content bg-dark border-0">
+      <div class="modal-header border-0">
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center p-0">
+        <img id="modalImage" src="" class="img-fluid rounded" alt="Tattoo Preview">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Logo Section -->
+<section class="logo-section">
+  <div class="logo-container">
+    <img src="assets/one.png" alt="BeTattoo Logo" class="footer-logo">
+  </div>
+</section>
+
+
+  <!-- Footer -->
+  <footer class="footer text-center py-4">
+    <p>&copy; 2025 BeTattoo. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="tattoo.js"></script>
+</body>
+</html>

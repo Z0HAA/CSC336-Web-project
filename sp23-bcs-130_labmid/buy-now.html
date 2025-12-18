@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BeTattoo - Buy Now</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="buy-now.css">
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <nav class="navbar navbar-expand-lg navbar-dark container">
+      <a class="navbar-brand logo" href="index.html">BeTattoo</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="process.html">Process</a></li>
+          <li class="nav-item"><a class="nav-link" href="tattoo.html">Tattoos</a></li>
+          <li class="nav-item"><a class="nav-link" href="studio.html">Our Studio</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+          <li class="nav-item"><a class="nav-link active" href="buy-now.html">Buy Now</a></li>
+          <li class="nav-item"><a class="nav-link" href="crud.html">CRUD Demo</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Buy Now Section -->
+  <section class="buy-now-section">
+    <div class="overlay"></div>
+    <div class="container text-center text-light py-5">
+      <h2 class="section-title mb-4">Tattoo Packages</h2>
+      <p class="section-subtitle mb-5">Select your preferred package and get your ink journey started</p>
+
+      <div class="row g-4 justify-content-center">
+        <!-- Basic -->
+        <div class="col-12 col-md-4">
+          <div class="package-card">
+            <h3>Basic Tattoo</h3>
+            <p>Simple and small — ideal for first-timers</p>
+            <p class="price">$80</p>
+            <a href="checkoutt.html?package=Basic+Tattoo" class="btn-outline buy-btn">Choose Package</a>
+          </div>
+        </div>
+
+        <!-- Standard -->
+        <div class="col-12 col-md-4">
+          <div class="package-card">
+            <h3>Standard Tattoo</h3>
+            <p>Medium-sized design with more detail</p>
+            <p class="price">$150</p>
+            <a href="checkoutt.html?package=Standard+Tattoo" class="btn-outline buy-btn">Choose Package</a>
+          </div>
+        </div>
+
+        <!-- Premium -->
+        <div class="col-12 col-md-4">
+          <div class="package-card">
+            <h3>Premium Tattoo</h3>
+            <p>Full detail, custom large tattoo art</p>
+            <p class="price">$250</p>
+            <a href="checkoutt.html?package=Premium+Tattoo" class="btn-outline buy-btn">Choose Package</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="logo-section">
+    <div class="logo-container">
+      <img src="assets/one.png" alt="BeTattoo Logo" class="footer-logo">
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer text-center py-4">
+    <p>&copy; 2025 BeTattoo. All rights reserved.</p>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
