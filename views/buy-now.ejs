@@ -1,0 +1,157 @@
+<%- include('partials/header', { title: 'BeTattoo - Buy Now', page: 'buy-now', cssFile: 'buy-now.css' }) %>
+
+<!-- Buy Now Section -->
+<section class="buy-now-section">
+  <div class="overlay"></div>
+  <div class="container text-light py-5" style="position: relative; z-index: 2;">
+    
+    <!-- Page Header -->
+    <div class="text-center mb-5">
+      <h2 class="section-title mb-3">Tattoo Packages</h2>
+      <p class="section-subtitle mb-2">Select your preferred package and get your ink journey started</p>
+      <p style="color: #999; font-size: 0.95rem;">Showing <%= products.length %> of <%= total %> packages</p>
+    </div>
+
+    <!-- Filter Section -->
+    <div style="background: rgba(17, 17, 17, 0.95); padding: 2rem; border-radius: 10px; margin-bottom: 3rem; border: 1px solid #333; max-width: 1100px; margin-left: auto; margin-right: auto;">
+      <form method="GET" action="/buy-now" id="filterForm">
+        <div class="row g-3">
+          
+          <!-- Category Filter -->
+          <div class="col-md-3">
+            <label style="color: #E8BCB5; display: block; margin-bottom: 0.5rem; font-weight: 500; font-size: 0.9rem;">Category</label>
+            <select name="category" class="form-control" style="background: #111; color: #fff; border: 1px solid #444; padding: 0.6rem; border-radius: 5px; width: 100%; font-size: 0.9rem;">
+              <option value="">All Categories</option>
+              <% categories.forEach(cat => { %>
+                <option value="<%= cat %>" <%= query.category === cat ? 'selected' : '' %>><%= cat %></option>
+              <% }) %>
+            </select>
+          </div>
+
+          <!-- Min Price Filter -->
+          <div class="col-md-3">
+            <label style="color: #E8BCB5; display: block; margin-bottom: 0.5rem; font-weight: 500; font-size: 0.9rem;">Min Price ($)</label>
+            <input type="number" name="priceMin" value="<%= query.priceMin || '' %>" placeholder="0" min="0" class="form-control" style="background: #111; color: #fff; border: 1px solid #444; padding: 0.6rem; border-radius: 5px; width: 100%; font-size: 0.9rem;">
+          </div>
+
+          <!-- Max Price Filter -->
+          <div class="col-md-3">
+            <label style="color: #E8BCB5; display: block; margin-bottom: 0.5rem; font-weight: 500; font-size: 0.9rem;">Max Price ($)</label>
+            <input type="number" name="priceMax" value="<%= query.priceMax || '' %>" placeholder="1000" min="0" class="form-control" style="background: #111; color: #fff; border: 1px solid #444; padding: 0.6rem; border-radius: 5px; width: 100%; font-size: 0.9rem;">
+          </div>
+
+          <!-- Items Per Page -->
+          <div class="col-md-3">
+            <label style="color: #E8BCB5; display: block; margin-bottom: 0.5rem; font-weight: 500; font-size: 0.9rem;">Items Per Page</label>
+            <select name="limit" class="form-control" style="background: #111; color: #fff; border: 1px solid #444; padding: 0.6rem; border-radius: 5px; width: 100%; font-size: 0.9rem;">
+              <option value="6" <%= limit === 6 ? 'selected' : '' %>>6</option>
+              <option value="9" <%= limit === 9 ? 'selected' : '' %>>9</option>
+              <option value="12" <%= limit === 12 ? 'selected' : '' %>>12</option>
+              <option value="24" <%= limit === 24 ? 'selected' : '' %>>24</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="text-center mt-3">
+          <button type="submit" class="btn-outline" style="margin-right: 1rem; background: #E8BCB5; color: #111; padding: 0.7rem 2rem;">Apply Filters</button>
+          <a href="/buy-now" class="btn-outline" style="padding: 0.7rem 2rem;">Clear All</a>
+        </div>
+      </form>
+    </div>
+
+    <!-- Products Grid -->
+    <div class="row g-4 justify-content-center">
+      <% if (products && products.length > 0) { %>
+        <% products.forEach(product => { %>
+          <div class="col-12 col-md-4">
+            <div class="package-card" style="height: 100%; display: flex; flex-direction: column;">
+              
+              <!-- Product Image (if available) -->
+              <% if (product.image) { %>
+                <div style="position: relative; margin-bottom: 1rem; border-radius: 8px; overflow: hidden;">
+                  <img src="<%= product.image %>" alt="<%= product.name %>" style="width: 100%; height: 180px; object-fit: cover;">
+                  <% if (product.featured) { %>
+                    <span style="position: absolute; top: 10px; right: 10px; background: #E8BCB5; color: #111; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">FEATURED</span>
+                  <% } %>
+                </div>
+              <% } %>
+
+              <!-- Product Info -->
+              <div style="flex: 1; display: flex; flex-direction: column;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                  <h3 style="color: #E8BCB5; margin: 0;"><%= product.name %></h3>
+                  <span style="background: #333; color: #E8BCB5; padding: 0.3rem 0.8rem; border-radius: 5px; font-size: 0.75rem;"><%= product.category %></span>
+                </div>
+
+                <p style="color: #ccc; flex: 1; margin-bottom: 1rem;"><%= product.description %></p>
+
+                <!-- Price and Stock -->
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                  <p class="price" style="margin: 0;">$<%= product.price %></p>
+                  <% if (product.inStock) { %>
+                    <span style="color: #5cb85c; font-size: 0.85rem;">✓ In Stock</span>
+                  <% } else { %>
+                    <span style="color: #d9534f; font-size: 0.85rem;">✗ Out of Stock</span>
+                  <% } %>
+                </div>
+
+                <!-- Choose Package Button -->
+                <% if (product.inStock) { %>
+                  <a href="/checkout?package=<%= encodeURIComponent(product.name) %>&price=<%= product.price %>" class="btn-outline buy-btn" style="text-align: center; display: block;">Choose Package</a>
+                <% } else { %>
+                  <button disabled class="btn-outline" style="text-align: center; opacity: 0.5; cursor: not-allowed; background: #555; border-color: #555;">Out of Stock</button>
+                <% } %>
+              </div>
+            </div>
+          </div>
+        <% }) %>
+      <% } else { %>
+        <div class="col-12">
+          <div class="package-card text-center" style="padding: 3rem 2rem;">
+            <h3 style="color: #E8BCB5; margin-bottom: 1rem;">No Packages Found</h3>
+            <p style="color: #999; margin-bottom: 1.5rem;">No products match your selected filters. Try adjusting your search.</p>
+            <a href="/buy-now" class="btn-outline">Clear Filters</a>
+          </div>
+        </div>
+      <% } %>
+    </div>
+
+    <!-- Pagination -->
+    <% if (totalPages > 1) { %>
+      <div class="text-center mt-5" style="padding: 2rem 0;">
+        <div style="display: inline-flex; gap: 0.5rem; flex-wrap: wrap; justify-content: center;">
+          
+          <!-- Previous Button -->
+          <% if (currentPage > 1) { %>
+            <a href="?page=<%= currentPage - 1 %>&category=<%= query.category || '' %>&priceMin=<%= query.priceMin || '' %>&priceMax=<%= query.priceMax || '' %>&limit=<%= limit %>" 
+               class="btn-outline" style="padding: 0.6rem 1.2rem; text-decoration: none;">← Previous</a>
+          <% } %>
+
+          <!-- Page Numbers -->
+          <% for(let i = 1; i <= totalPages; i++) { %>
+            <% if (i === 1 || i === totalPages || (i >= currentPage - 2 && i <= currentPage + 2)) { %>
+              <a href="?page=<%= i %>&category=<%= query.category || '' %>&priceMin=<%= query.priceMin || '' %>&priceMax=<%= query.priceMax || '' %>&limit=<%= limit %>" 
+                 class="btn-outline" 
+                 style="padding: 0.6rem 1.2rem; text-decoration: none; <%= i === currentPage ? 'background: #E8BCB5; color: #111;' : '' %>"><%= i %></a>
+            <% } else if (i === currentPage - 3 || i === currentPage + 3) { %>
+              <span style="padding: 0.6rem 1.2rem; color: #666;">...</span>
+            <% } %>
+          <% } %>
+
+          <!-- Next Button -->
+          <% if (currentPage < totalPages) { %>
+            <a href="?page=<%= currentPage + 1 %>&category=<%= query.category || '' %>&priceMin=<%= query.priceMin || '' %>&priceMax=<%= query.priceMax || '' %>&limit=<%= limit %>" 
+               class="btn-outline" style="padding: 0.6rem 1.2rem; text-decoration: none;">Next →</a>
+          <% } %>
+        </div>
+
+        <!-- Page Info -->
+        <p style="color: #999; margin-top: 1rem; font-size: 0.9rem;">Page <%= currentPage %> of <%= totalPages %></p>
+      </div>
+    <% } %>
+
+  </div>
+</section>
+
+<%- include('partials/footer') %>
