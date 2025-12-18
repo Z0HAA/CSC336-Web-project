@@ -1,0 +1,153 @@
+/* ---------------------- Reset ---------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ---------------------- Body ---------------------- */
+body {
+  font-family: 'Fredericka the Great', cursive;
+  background-color: #111;
+  color: #eee;
+  line-height: 1.6;
+}
+
+/* ---------------------- Navbar ---------------------- */
+.header {
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  background: #111;
+  border: 1px solid #333;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+.navbar {
+  padding: 0.5rem 2rem;
+}
+
+.navbar-nav {
+  display: flex;
+  gap: 2rem;
+  margin-left: -1rem;
+}
+
+.logo {
+  font-family: 'Fredericka the Great', cursive;
+  font-size: 2rem;
+  color: #E8BCB5 !important;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: #E8BCB5 !important;
+}
+
+/* ---------------------- Buy Now Section ---------------------- */
+.buy-now-section {
+  background: url('assets/smokey.jpg') no-repeat center center/cover;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding-top: 200px;
+  padding-bottom: 100px;
+  color: #fff;
+}
+
+.buy-now-section .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+.buy-now-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  color: #E8BCB5;
+}
+
+.section-subtitle {
+  color: #ccc;
+  font-size: 1rem;
+}
+
+/* ---------------------- Package Cards ---------------------- */
+.package-card {
+  background: rgba(17, 17, 17, 0.8);
+  border: 1px solid #333;
+  border-radius: 10px;
+  padding: 2rem 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.package-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.8);
+}
+
+.package-card h3 {
+  color: #E8BCB5;
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.package-card p {
+  color: #ccc;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.package-card .price {
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+
+/* ---------------------- Button ---------------------- */
+.btn-outline {
+  display: inline-block;
+  padding: 0.6rem 1.5rem;
+  border: 1px solid #E8BCB5;
+  color: #E8BCB5;
+  font-family: 'Fredericka the Great', cursive;
+  background: transparent;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+  background: #E8BCB5;
+  color: #111;
+}
+
+
+/* Logo Section */
+.logo-section {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.logo-section img {
+  width: 150px;
+  height: auto;
+}
+/* ---------------------- Footer ---------------------- */
+.footer {
+  background: #111;
+  border-top: 1px solid #333;
+  color: #999;
+}
