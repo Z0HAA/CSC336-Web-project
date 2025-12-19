@@ -1,0 +1,33 @@
+<%- include('partials/header', { title: title, page: 'my-orders' }) %>
+
+
+<div class="container my-5">
+  <h2>My Orders</h2>
+  <% if (orders.length === 0) { %>
+    <p>You have no orders yet.</p>
+  <% } else { %>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>Date</th>
+          <th>Total</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% orders.forEach(order => { %>
+          <tr>
+            <td><%= order._id %></td>
+            <td><%= order.createdAt.toLocaleString() %></td>
+            <td>$<%= order.total.toFixed(2) %></td>
+            <td><%= order.status %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  <% } %>
+</div>
+
+<%- include('partials/footer') %>
+

@@ -1,0 +1,73 @@
+<div class="container-fluid">
+  <h2 class="mb-4" style="color: #E8BCB5;"><i class="bi bi-speedometer2"></i> Dashboard</h2>
+
+  <!-- Stats Cards -->
+  <div class="row g-4 mb-4">
+    <div class="col-md-3">
+      <div class="stat-card">
+        <h3><%= stats.total %></h3>
+        <p><i class="bi bi-box-seam"></i> Total Products</p>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="stat-card">
+        <h3><%= stats.inStock %></h3>
+        <p><i class="bi bi-check-circle"></i> In Stock</p>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="stat-card">
+        <h3><%= stats.featured %></h3>
+        <p><i class="bi bi-star"></i> Featured</p>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="stat-card">
+        <h3>$<%= stats.totalValue %></h3>
+        <p><i class="bi bi-cash-stack"></i> Total Value</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Category Breakdown -->
+  <div class="row">
+    <div class="col-md-6">
+      <div class="stat-card">
+        <h4 style="color: #E8BCB5; margin-bottom: 1.5rem;"><i class="bi bi-pie-chart"></i> Category Breakdown</h4>
+        <% if (categoryStats && categoryStats.length > 0) { %>
+          <% categoryStats.forEach(cat => { %>
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <span style="color: #ccc; font-size: 1.1rem;"><%= cat._id %></span>
+              <span class="badge bg-secondary"><%= cat.count %> products</span>
+            </div>
+          <% }) %>
+        <% } else { %>
+          <p style="color: #999;">No products yet</p>
+        <% } %>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="stat-card">
+        <h4 style="color: #E8BCB5; margin-bottom: 1.5rem;"><i class="bi bi-lightning"></i> Quick Actions</h4>
+        <div class="d-grid gap-2">
+          <a href="/admin/products/add" class="btn btn-primary">
+            <i class="bi bi-plus-circle"></i> Add New Product
+          </a>
+          <a href="/admin/products" class="btn btn-outline-primary">
+            <i class="bi bi-list-ul"></i> View All Products
+          </a>
+          <a href="/" target="_blank" class="btn btn-outline-primary">
+            <i class="bi bi-globe"></i> View Website
+          </a>
+          <a href="/admin/orders" class="btn btn-primary">
+              <i class="bi bi-bag"></i> View Orders
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

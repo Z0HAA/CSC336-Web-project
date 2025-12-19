@@ -1,0 +1,32 @@
+<h2>Orders</h2>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Total</th>
+      <th>Status</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% orders.forEach(o => { %>
+      <tr>
+        <td><%= o._id %></td>
+        <td>$<%= o.total %></td>
+        <td><%= o.status %></td>
+        <td>
+          <% if (o.status !== 'Delivered') { %>
+            <form method="POST" action="/admin/orders/<%= o._id %>/status">
+              <input type="hidden" name="status"
+                value="<%= o.status === 'Placed' ? 'Processing' : 'Delivered' %>">
+              <button type="submit" class="btn btn-primary btn-sm">Next</button>
+            </form>
+          <% } else { %>
+            <span class="badge bg-success">Completed</span>
+          <% } %>
+        </td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>

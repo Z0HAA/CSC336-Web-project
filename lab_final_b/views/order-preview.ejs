@@ -1,0 +1,54 @@
+<%- include('partials/header', { title: 'Order Preview', page: 'checkout' }) %>
+
+<div class="container mt-5">
+  <h2 class="mb-4 text-center">Order Preview</h2>
+
+  <ul class="list-group mb-3">
+    <% cart.forEach(item => { %>
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <div>
+          <h6 class="my-0"><%= item.name %></h6>
+          <small class="text-muted">Quantity: <%= item.quantity %></small>
+        </div>
+        <span class="text-muted">$<%= (item.price * item.quantity).toFixed(2) %></span>
+      </li>
+    <% }) %>
+
+    <li class="list-group-item d-flex justify-content-between">
+      <span>Subtotal</span>
+      <strong>$<%= subtotal.toFixed(2) %></strong>
+    </li>
+
+    <li class="list-group-item d-flex justify-content-between">
+      <span>Discount</span>
+      <strong>
+        <% if(discount && discount.amount > 0) { %>
+          -$<%= discount.amount.toFixed(2) %> (<%= discount.code %>)
+        <% } else { %>
+          $0.00
+        <% } %>
+      </strong>
+    </li>
+
+    <li class="list-group-item d-flex justify-content-between bg-warning text-dark fw-bold">
+      <span>Total</span>
+      <strong>$<%= total.toFixed(2) %></strong>
+    </li>
+  </ul>
+
+  <form method="POST" action="/order/confirm">
+    <input type="hidden" name="subtotal" value="<%= subtotal %>">
+    <input type="hidden" name="coupon" value="<%= discount ? discount.code : '' %>">
+    <input type="hidden" name="items" value='<%- JSON.stringify(cart) %>'>
+    <input type="hidden" name="customer" value='<%- JSON.stringify(customer) %>'>
+    <input type="hidden" name="total" value="<%= total.toFixed(2) %>">
+
+    <button type="submit" class="btn btn-success w-100 btn-lg">Confirm Order</button>
+  </form>
+
+  <div class="mt-3 text-center">
+    <a href="/checkoutt" class="btn btn-secondary">Back to Checkout</a>
+  </div>
+</div>
+
+<%- include('partials/footer') %>
